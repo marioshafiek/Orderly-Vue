@@ -1,8 +1,12 @@
 <template>
-  <h1>hello world</h1>
-  <div class="bg-black">Tailwind</div>
+  <NavBar />
 </template>
-
-<script></script>
-
+<script>
+import NavBar from './components/shared/NavBar.vue'
+export default {
+  components: {
+    NavBar
+  }
+}
+</script>
 <style></style>
