@@ -1,14 +1,14 @@
 <template>
   <NavBar />
-  <ProductCardList />
+  <Home />
 </template>
 <script>
 import NavBar from './components/shared/NavBar.vue'
-import ProductCardList from './components/products/ProductCardList.vue'
+import Home from './pages/Home.vue'
 export default {
   components: {
     NavBar,
-    ProductCardList
+    Home
   }
 }
 </script>
