@@ -13,26 +13,23 @@ export default {
   components: {
     ProductCard
   },
+  //Data
   data() {
     return {
-      products: [
-        {
-          title: 'Product 1',
-          price: '20 EGP',
-          image:
-            'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp'
-        },
-        {
-          title: 'Product 2',
-          price: '30 EGP',
-          image: 'https://via.placeholder.com/400x400'
-        },
-        {
-          title: 'Product 3',
-          price: '50 EGP',
-          image: 'https://via.placeholder.com/400x400'
-        }
-      ]
+      products: []
+    }
+  },
+  mounted() {
+    this.fetchProducts()
+  },
+  methods: {
+    fetchProducts() {
+      fetch('https://fakestoreapi.com/products')
+        .then((response) => response.json())
+        .then((products) => {
+          this.products = products
+        })
+        .catch((error) => console.error('Error:', error))
     }
   }
 }
