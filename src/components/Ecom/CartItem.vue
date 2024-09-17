@@ -23,7 +23,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  //Method for decrease and increase
+  methods: {
+    decreaseQuantity() {},
+    increaseQuantity() {}
+  }
+}
 </script>
 
 <style></style>

@@ -1,30 +1,78 @@
 <template>
-  <button @click="handleClick">
-    <div class="w-10 mt-2">
-      <div class="text-sm text-center absolute right-7 top-4">1</div>
-      <img class="w-9" src="../../assets/Cart.svg" alt="CartItem" />
+  <div>
+    <div
+      v-if="visible"
+      class="cart-drawer fixed right-0 top-[60px] w-full lg:w-[420px] bg-white shadow-lg flex flex-col z-50 p-6 h-full"
+    >
+      <!-- Heading Section -->
+      <div class="cart-header border-b pb-4 mb-4 flex justify-between">
+        <h2 class="text-4xl font-semibold text-gray-800 text-center">Items</h2>
+        <div class="flex gap-4">
+          <button
+            @click="animateButton"
+            class="border-2 border-black p-1 w-[100px]"
+            :class="{ 'animate-scale': isAnimating }"
+          >
+            Clear Items
+          </button>
+        </div>
+      </div>
+      <!-- Item Section -->
+      <div class="cart-items flex-grow">
+        <CartItemList />
+        <div class="pt-10">
+          <!-- Pay Section -->
+          <button class="w-full py-3 border-2 border-black w-[200px]">PAY 40 EGP</button>
+        </div>
+      </div>
     </div>
-  </button>
-  <CartDrawer :visible="isCartVisible" @update:visible="isCartVisible = $event" />
+  </div>
 </template>
-
 <script>
-import CartDrawer from './CartDrawer.vue'
+import CartItemList from './CartItemList.vue'
+
 export default {
   components: {
-    CartDrawer
+    CartItemList
+  },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
-      isCartVisible: false
+      isAnimating: false
     }
   },
   methods: {
-    handleClick() {
-      this.isCartVisible = !this.isCartVisible
+    animateButton() {
+      this.isAnimating = !this.isAnimating
+      setTimeout(() => {
+        this.isAnimating = false
+      }, 300)
     }
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-scale {
+  animation: scale 0.3s ease-in-out;
+}
+</style>
