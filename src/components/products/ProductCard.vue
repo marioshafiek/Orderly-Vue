@@ -8,14 +8,16 @@
           {{ product.price }}
         </div>
       </div>
-      <img
-        :src="product.image"
-        alt="Item"
-        class="w-[200px] h-[200px] ml-10 mt-7 object-contain flex justify-center items-center"
-      />
+      <div class="flex justify-center p-5">
+        <img
+          :src="product.image"
+          alt="Item"
+          class="w-[200px] h-[200px] object-contain flex justify-center items-center"
+        />
+      </div>
     </div>
     <div class="p-4 flex justify-between">
-      <p class="text-lg font-semibold mb-2 h-20 w-40">{{ product.title.slice(0, 20) }}...</p>
+      <p class="text-lg font-semibold h-20 w-40">{{ product.title.slice(0, 20) }}...</p>
       <button
         @click="animateButton"
         :class="{ 'animate-scale': isAnimating }"
