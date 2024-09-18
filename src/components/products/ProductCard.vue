@@ -1,11 +1,11 @@
 <template>
-  <div class="border-2 border-black w-[300px] h-[350px] flex flex-col justify-between">
+  <div class="w-[300px] h-[350px] flex flex-col justify-between">
     <div>
       <div class="relative">
         <div
-          class="w-20 h-10 bg-black text-white absolute right-2 top-2 flex items-center justify-center"
+          class="w-22 p-2 h-10 bg-black text-white absolute right-2 top-2 flex items-center justify-center"
         >
-          {{ product.price }}
+          {{ product.price }} EGP
         </div>
       </div>
       <div class="flex justify-center p-5">
@@ -16,12 +16,12 @@
         />
       </div>
     </div>
-    <div class="p-4 flex justify-between">
-      <p class="text-lg font-semibold h-20 w-40">{{ product.title.slice(0, 20) }}...</p>
+    <div class="p-4 flex justify-between border-2 border-black h-[50px]items-center">
+      <p class="text-lg w-40">{{ product.title.slice(0, 10) }}...</p>
       <button
         @click="animateButton"
         :class="{ 'animate-scale': isAnimating }"
-        class="border-2 border-black w-20 h-8"
+        class="border-2 border-black w-20 h-7 font-semibold"
       >
         Add +
       </button>
