@@ -22,7 +22,7 @@
 export default {
   methods: {
     toggleCart() {
-      this.$store.commit('Toggle_Cart')
+      this.$store.commit('toggleCart')
     }
   }
 }
