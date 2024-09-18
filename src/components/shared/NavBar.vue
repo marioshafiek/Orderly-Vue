@@ -8,7 +8,7 @@
       <div class="flex text-center mb-2">
         <button @click="toggleCart">
           <div class="w-10 mt-3">
-            <div class="text-sm text-center absolute right-7 top-4">2</div>
+            <div class="text-sm text-center absolute right-7 top-4">{{ cartTotal }}</div>
             <img class="w-9" src="@/assets/Cart.svg" alt="CartItem" />
           </div>
         </button>
@@ -20,6 +20,12 @@
 
 <script>
 export default {
+  computed: {
+    // Getter from store
+    cartTotal() {
+      return this.$store.getters.cartTotal
+    }
+  },
   methods: {
     toggleCart() {
       this.$store.commit('toggleCart')

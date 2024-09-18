@@ -1,6 +1,9 @@
 <template>
   <div v-if="loadingStatus" class="flex justify-center">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4"
+      :class="{ hidden: isPhone && isCartOpen }"
+    >
       <ProductCard v-for="(product, index) in allProducts" :key="index" :product="product" />
     </div>
   </div>
@@ -18,18 +21,41 @@ export default {
   components: {
     ProductCard
   },
+  data() {
+    return {
+      isMobile: false // Track if the view is mobile
+    }
+  },
   computed: {
-    //Getter from store
     allProducts() {
       return this.$store.getters.allProducts
     },
     loadingStatus() {
       return this.$store.getters.isLoading
+    },
+    isCartOpen() {
+      return this.$store.getters.isCartOpen
+    },
+    isPhone() {
+      return this.isMobile
     }
   },
   mounted() {
-    //Dispatch actions from the store
     this.$store.dispatch('fetchProducts')
+    // Check mobile view when component is mounted
+    // this.checkMobileView()
+    window.addEventListener('resize', this.checkMobileView)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkMobileView)
+  },
+  methods: {
+    checkMobileView() {
+      console.log(this.isMobile)
+      if (window.innerWidth <= 700) {
+        return (this.isMobile = true)
+      }
+    }
   }
 }
 </script>
