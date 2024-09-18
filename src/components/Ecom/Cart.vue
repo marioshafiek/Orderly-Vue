@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="visible"
+      v-if="isCartOpen"
       class="cart-drawer fixed right-0 top-[70px] w-full lg:w-[420px] bg-white shadow-lg flex flex-col z-50 p-6 h-full border-l-2 border-black"
     >
       <!-- Heading Section -->
@@ -46,6 +46,12 @@ export default {
   data() {
     return {
       isAnimating: false
+    }
+  },
+  computed: {
+    // Getter from store
+    isCartOpen() {
+      return this.$store.getters.isCartOpen
     }
   },
   methods: {

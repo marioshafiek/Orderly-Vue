@@ -1,7 +1,7 @@
 <template>
   <NavBar />
   <Home />
-  <Cart :visible="isCartOpen" />
+  <Cart />
 </template>
 <script>
 import NavBar from './components/shared/NavBar.vue'
@@ -13,13 +13,6 @@ export default {
     NavBar,
     Home,
     Cart
-  },
-  computed: {
-    // Getter from store
-    isCartOpen() {
-      console.log(this.$store.getters.isCartOpen)
-      return this.$store.getters.isCartOpen
-    }
   }
 }
 </script>

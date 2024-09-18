@@ -3,5 +3,11 @@
 export default {
   setProducts: (state, products) => {
     state.products = products
+  },
+  setLoadingTrue: (state) => {
+    state.loading = true
+  },
+  setLoadingFalse: (state) => {
+    state.loading = false
   }
 }

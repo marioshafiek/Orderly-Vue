@@ -20,15 +20,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      cartChanged: false
-    }
-  },
   methods: {
     toggleCart() {
-      this.cartChanged = !this.cartChanged
-      this.$store.dispatch('toggleCart')
+      this.$store.commit('Toggle_Cart')
     }
   }
 }

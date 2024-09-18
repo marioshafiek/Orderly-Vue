@@ -2,5 +2,6 @@
 //getters to access state data
 //Get All Products
 export default {
-  allProducts: (state) => state.products
+  allProducts: (state) => state.products,
+  isLoading: (state) => state.loading
 }
