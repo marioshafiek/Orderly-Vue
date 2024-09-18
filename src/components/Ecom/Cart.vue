@@ -2,18 +2,18 @@
   <div>
     <div
       v-if="visible"
-      class="cart-drawer fixed right-0 top-[60px] w-full lg:w-[420px] bg-white shadow-lg flex flex-col z-50 p-6 h-full"
+      class="cart-drawer fixed right-0 top-[70px] w-full lg:w-[420px] bg-white shadow-lg flex flex-col z-50 p-6 h-full border-l-2 border-black"
     >
       <!-- Heading Section -->
       <div class="cart-header border-b pb-4 mb-4 flex justify-between">
-        <h2 class="text-4xl font-semibold text-gray-800 text-center">Items</h2>
+        <h2 class="text-4xl font-semibold text-gray-800 text-center">ITEMS</h2>
         <div class="flex gap-4">
           <button
             @click="animateButton"
             class="border-2 border-black p-1 w-[100px]"
             :class="{ 'animate-scale': isAnimating }"
           >
-            Clear Items
+            CLEAR
           </button>
         </div>
       </div>
@@ -22,7 +22,9 @@
         <CartItemList />
         <div class="pt-10">
           <!-- Pay Section -->
-          <button class="w-full py-3 border-2 border-black w-[200px]">PAY 40 EGP</button>
+          <button class="w-full py-3 font-bold text-2xl border-2 border-black w-[200px]">
+            PAY 40 EGP
+          </button>
         </div>
       </div>
     </div>

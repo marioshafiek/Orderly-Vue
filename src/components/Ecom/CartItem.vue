@@ -15,9 +15,9 @@
     </div>
     <!--Quantity-->
     <div class="flex">
-      <button class="w-7 h-7 border-2 border-black text-center">+</button>
-      <p class="p-4 pt-1">1</p>
       <button class="w-7 h-7 border-2 border-black text-center">-</button>
+      <p class="p-4 pt-1">1</p>
+      <button class="w-7 h-7 border-2 border-black text-center">+</button>
     </div>
   </div>
 </template>
