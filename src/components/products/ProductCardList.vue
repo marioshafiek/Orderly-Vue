@@ -24,7 +24,6 @@ export default {
       return this.$store.getters.allProducts
     },
     loadingStatus() {
-      console.log(this.$store.getters.isLoading)
       return this.$store.getters.isLoading
     }
   },
