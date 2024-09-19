@@ -14,16 +14,6 @@ export default {
     isCartOpen() {
       return this.$store.getters.isCartOpen
     }
-  },
-  watch: {
-    // Watch for changes in isCartOpen
-    isCartOpen(newVal) {
-      if (newVal) {
-        document.body.style.overflow = 'hidden'
-      } else {
-        document.body.style.overflow = 'auto'
-      }
-    }
   }
 }
 </script>
