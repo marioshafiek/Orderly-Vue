@@ -2,14 +2,14 @@
   <div>
     <div
       v-if="isCartOpen"
-      class="cart-drawer fixed right-0 top-[70px] w-full lg:w-[420px] bg-white shadow-lg flex flex-col z-50 p-6 h-full border-l-2 border-black"
+      class="cart-drawer pb-[100px] fixed right-0 top-[70px] w-full lg:w-[420px] bg-white shadow-lg flex flex-col z-50 p-6 h-full lg:border-l-2 border-black"
     >
       <!-- Heading Section -->
       <div class="cart-header border-b pb-4 mb-4 flex justify-between">
         <h2 class="text-4xl font-semibold text-gray-800 text-center">ITEMS</h2>
         <div class="flex gap-4">
           <button
-            @click="animateButton"
+            @click="clearCartAction"
             class="border-2 border-black p-1 w-[100px]"
             :class="{ 'animate-scale': isAnimating }"
           >
@@ -18,14 +18,17 @@
         </div>
       </div>
       <!-- Item Section -->
-      <div class="cart-items flex-grow">
+      <div class="cart-items flex-grow overflow-scroll">
         <CartItemList />
-        <div class="pt-10">
-          <!-- Pay Section -->
-          <button class="w-full py-3 font-bold text-2xl border-2 border-black w-[200px]">
-            PAY 40 EGP
-          </button>
-        </div>
+      </div>
+      <div class="pt-2">
+        <!-- Pay Section -->
+        <button
+          @click="payButton"
+          class="w-full py-3 font-bold text-2xl border-2 border-black w-[200px]"
+        >
+          PAY {{ cartTotalPrice }} EGP
+        </button>
       </div>
     </div>
   </div>
@@ -52,14 +55,39 @@ export default {
     // Getter from store
     isCartOpen() {
       return this.$store.getters.isCartOpen
+    },
+    toggleCart() {
+      this.$store.commit('toggleCart')
+    },
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice
     }
   },
   methods: {
-    animateButton() {
-      this.isAnimating = !this.isAnimating
+    clearCart() {
+      this.$store.commit('clearCart')
+    },
+    clearCartAction() {
+      this.isAnimating = true
       setTimeout(() => {
         this.isAnimating = false
+        this.clearCart()
       }, 300)
+    },
+    payButton() {
+      this.clearCart()
+      this.showAlert()
+      this.toggleCart()
+    },
+    showAlert() {
+      this.$swal({
+        title: 'Task is done!!!',
+
+        imageUrl: 'https://media.filfan.com/NewsPics/FilfanNew/large/335097_0.JPG',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'image'
+      })
     }
   }
 }

@@ -1,4 +1,7 @@
 // state
 export default {
-  isCartOpen: false
+
+  isCartOpen: false,
+  cart: [] //Object {id,quantity,price}
+
 }
