@@ -2,7 +2,7 @@
   <div v-if="loadingStatus" class="flex justify-center">
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4"
-      :class="{ hidden: isPhone && isCartOpen }"
+      :class="{ hidden: isMobile && isCartOpen }"
     >
       <ProductCard v-for="(product, index) in allProducts" :key="index" :product="product" />
     </div>
@@ -35,10 +35,6 @@ export default {
     },
     isCartOpen() {
       return this.$store.getters.isCartOpen
-    },
-    isPhone() {
-      return this.isMobile
-
     }
   },
   mounted() {
@@ -52,7 +48,6 @@ export default {
   },
   methods: {
     checkMobileView() {
-      console.log(this.isMobile)
       if (window.innerWidth <= 700) {
         return (this.isMobile = true)
       }
