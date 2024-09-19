@@ -16,7 +16,7 @@
         />
       </div>
     </div>
-    <div class="p-4 flex justify-between border-2 border-black h-[50px] items-center">
+    <div class="p-4 flex justify-between border-2 border-black h-[50px]items-center">
       <p class="text-lg w-40">{{ product.title.slice(0, 10) }}...</p>
       <button
         @click="addToCart"

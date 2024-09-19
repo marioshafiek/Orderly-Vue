@@ -15,4 +15,5 @@ export default {
     const rounded = number.toFixed(2)
     return rounded
   }
+
 }

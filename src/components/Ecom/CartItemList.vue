@@ -34,6 +34,9 @@ export default {
       })
       return Items
     }
+export default {
+  components: {
+    CartItem
   }
 }
 </script>

@@ -38,6 +38,7 @@ export default {
     },
     isPhone() {
       return this.isMobile
+
     }
   },
   mounted() {

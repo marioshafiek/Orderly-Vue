@@ -9,6 +9,7 @@
         <button @click="toggleCart">
           <div class="w-10 mt-3">
             <div class="text-sm text-center absolute right-7 top-4">{{ cartTotal }}</div>
+
             <img class="w-9" src="@/assets/Cart.svg" alt="CartItem" />
           </div>
         </button>
